@@ -9,14 +9,12 @@ Rails.application.routes.draw do
   #user
   get 'signup'  => 'users#new'
 
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  get 'login'   => 'users#login'
 
   resources :users
-  resources :categories
-  
-  namespace :admin do
+
+  namespace "admin" do
+
     root 'static_pages#home'
     resources :categories
     resources :users
