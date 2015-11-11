@@ -1,4 +1,5 @@
 
+
 User.create!(name:  "Mai Van Hien",
              email: "hienmv94@gmail.com",
              password:              "mrhien1994",
@@ -34,4 +35,5 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 # This file should contain all the record creation needed to seed the database with its default values.
+
 
