@@ -19,10 +19,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # bcrypt
 gem 'bcrypt'
 
-
-
-# bcrypt
-gem 'bcrypt'
+#bootstrap
+gem 'bootstrap-sass'
 
 
 # Use jquery as the JavaScript library
