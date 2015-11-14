@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
+  
   root 'static_pages#home'
   #static page
   get "help" => 'static_pages#help'
   get "about" => 'static_pages#about'
   get "contact" => 'static_pages#contact'
+
   #user
   get 'signup'  => 'users#new'
 
@@ -14,10 +14,13 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users
-
-  namespace "admin" do
+  resources :categories
+  
+  namespace :admin do
     root 'static_pages#home'
+    resources :categories
     resources :users
   end
+  
 
 end
