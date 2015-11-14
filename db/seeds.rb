@@ -1,5 +1,6 @@
 
 
+
 User.create!(name:  "Mai Van Hien",
              email: "hienmv94@gmail.com",
              password:              "mrhien1994",
@@ -34,6 +35,23 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
+
 # This file should contain all the record creation needed to seed the database with its default values.
 
+category_list = [
+	"people",
+	"pictures",
+	"foods",
+	"education",
+	"sports",
+	"students",
+	"love"
+]
+
+category_list.each do |cateogory|
+	Category.create(name: cateogory)
+end
+
+w
+>>>>>>> update API login, signup
 
