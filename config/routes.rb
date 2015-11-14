@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  #category
+
+  get "showCategory" => 'category#show'
+
   namespace "admin" do
     root 'static_pages#home'
   end

@@ -1,0 +1,31 @@
+<% provide(:title, "Category Word") %>
+
+<h1> Category Word</h1>
+<table class="table table-responsive category">
+	<tbody>
+		<% @count = 0%>
+		<% @category.each do |category| %>
+			<% @count+=1 %>
+			<tr>
+				<% if @count%2 == 0 %>
+					<td>
+						Lession <%= @count %>
+					</td>
+				<% end %>
+				<td class="category-box">
+					<p><span class="category-name"><%= category.name%></span> - You're learned 20/500</p>
+
+					<span>
+						text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text 
+					</span><br/>
+					<button class="btn btn-primary start-study">Start study</button>
+				</td>
+				<% if @count%2 == 1 %>
+					<td>
+						Lession <%= @count %>
+					</td>
+				<% end %>
+			</tr>
+		<% end%>
+	</tbody>
+</table>
