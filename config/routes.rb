@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'static_pages#home'
   #static page
   get "help" => 'static_pages#help'
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users
-
+  resources :categories
+  
   namespace :admin do
     root 'static_pages#home'
     resources :categories
