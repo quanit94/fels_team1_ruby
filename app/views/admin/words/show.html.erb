@@ -1,0 +1,13 @@
+<% provide :title, t("word") %>
+<h1><%= t("word") %></h1>
+
+<%= @word.content %>
+<%= @word.category_id %>
+
+<% @word.word_answers.each do |answer| %>
+  <li>
+    <%= answer.content %>
+    <%= answer.correct %>
+  </li>
+<% end %>
+

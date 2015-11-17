@@ -1,0 +1,14 @@
+<%= form_for [:admin, @word] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.label :category %>
+  <%= f.collection_select :category_id, Category.all, :id, :name %>
+
+  <%= f.fields_for :word_answers do |builder| %>
+    <%= builder.check_box :correct %>
+    <%= builder.text_field :content %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
