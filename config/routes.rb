@@ -19,11 +19,14 @@ Rails.application.routes.draw do
 
 
   resources :users
+  resources :words
+  resources :categories
 
   #category
 
-  get "showCategory" => 'category#show'
 
+  #word
+  
   namespace "admin" do
 
     root 'static_pages#home'

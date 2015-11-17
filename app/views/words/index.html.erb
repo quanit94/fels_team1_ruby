@@ -1,0 +1,29 @@
+<% provide(:title, "Word list") %>
+
+<h1> Word List</h1>
+
+<div class="container">
+	<div class="row filter_menu">
+		<div class="col-md-3">
+			<h3>Category</h3>
+			<%= form_tag "filter", url: words_path, method: :get do |f| %>
+			  <div class="form-group filter_group">
+			  <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :name), class: "form-control" %>
+			  <%= radio_button_tag 'status', 'leaned' , class: "form-control"%> learned
+			  <%= radio_button_tag 'status', 'not_learned' , class: "form-control"%> not learned
+
+
+			  </div>
+			<% end %>
+		</div>
+		<div class="container word_list_content col-md-6" style="border:solid 1px">
+			<%= @word.each do |w| %>
+				<%= w.content %><br/>
+			<% end%>
+
+		</div>
+	</div>
+	<div>
+
+	</div>
+</div>

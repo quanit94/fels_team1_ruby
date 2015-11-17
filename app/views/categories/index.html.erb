@@ -1,27 +1,31 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Category Word") %>
 
-<h1>Listing Categories</h1>
+<h1> Category Word</h1>
+<table class="table table-responsive category">
+	<tbody>
+		<% @count = 0%>
+		<% @category.each do |category| %>
+			<% @count+=1 %>
+			<tr>
+				<% if @count%2 == 0 %>
+					<td>
+						Lession <%= @count %>
+					</td>
+				<% end %>
+				<td class="category-box">
+					<p><span class="category-name"><%= category.name%></span> - You're learned 20/500</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+					<span>
+						text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text 
+					</span><br/>
+					<button class="btn btn-primary start-study">Start study</button>
+				</td>
+				<% if @count%2 == 1 %>
+					<td>
+						Lession <%= @count %>
+					</td>
+				<% end %>
+			</tr>
+		<% end%>
+	</tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
