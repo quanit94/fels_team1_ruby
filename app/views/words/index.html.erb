@@ -12,12 +12,11 @@
 			  <%= radio_button_tag 'status', 'leaned' , class: "form-control"%> learned
 			  <%= radio_button_tag 'status', 'not_learned' , class: "form-control"%> not learned
 
-
 			  </div>
 			<% end %>
 		</div>
 		<div class="container word_list_content col-md-6" style="border:solid 1px">
-			<%= @word.each do |w| %>
+			<% @word.each do |w| %>
 				<%= w.content %><br/>
 			<% end%>
 
