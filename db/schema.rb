@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20151111041025) do
-
-
+ActiveRecord::Schema.define(version: 20151117081306) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id"
@@ -25,22 +22,6 @@ ActiveRecord::Schema.define(version: 20151111041025) do
   end
 
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
-
-  create_table "admin_categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "answers", force: :cascade do |t|
-    t.string   "content"
-    t.boolean  "is_correct"
-    t.integer  "word_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "answers", ["word_id"], name: "index_answers_on_word_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -79,6 +60,7 @@ ActiveRecord::Schema.define(version: 20151111041025) do
   end
 
   create_table "results", force: :cascade do |t|
+    t.boolean  "status"
     t.integer  "word_id"
     t.integer  "lesson_id"
     t.integer  "answer_id"
@@ -95,15 +77,12 @@ ActiveRecord::Schema.define(version: 20151111041025) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-
     t.string   "image"
-
     t.string   "password_digest"
     t.boolean  "admin",           default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
-
   end
 
   create_table "word_answers", force: :cascade do |t|
