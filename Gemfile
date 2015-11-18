@@ -18,15 +18,12 @@ gem "coffee-rails", "~> 4.1.0"
 # gem 'therubyracer', platforms: :ruby
 
 
-# Paginate Plugin
-gem 'will_paginate', '~> 3.0'
+
 
 #Gem carries wave
 gem 'carrierwave'
 
 
-# bcrypt
-gem 'bcrypt'
 
 
 # Use jquery as the JavaScript library
