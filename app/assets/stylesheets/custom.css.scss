@@ -109,6 +109,7 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 
+
 }
 
 
@@ -144,8 +145,8 @@ input {
 
 }
 
-// filter
-
-.filter-radio{
-
+// filter word
+.filter_group{
+  display: inline;
 }
+

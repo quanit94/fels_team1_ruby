@@ -55,6 +55,7 @@ end
 
 # add word list
 for i in 0..9
+
 	word = Word.create(content: "people#{i+1}", category_id: 1)
 
 	for j in 0..2
@@ -124,4 +125,5 @@ for i in 0..9
 
 	word.word_answers.create content: "love#{i}_#{3}", correct: true
 end
+
 

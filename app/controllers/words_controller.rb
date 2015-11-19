@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
 	def index
+
 		if params['category_id']
 			@words = Word.where(category_id: params['category_id'] )
 		else
@@ -20,4 +21,12 @@ class WordsController < ApplicationController
 		  format.json {render json: {error: :fasle, word_list: word_list}, status: :ok}
 		end
 	end
+
+
+	def show
+		
+		@category = Category.order("name ASC")
+	end
+
+
 end
