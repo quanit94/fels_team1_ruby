@@ -1,0 +1,14 @@
+<% provide :title, "Result Lesson" %>
+<h1><%= @lesson.category.name %></h1>
+<ol>
+  <% @lesson.lesson_words.each do |lesson_word| %>
+    <li>
+      <%= lesson_word.word.content %>
+      <ul>
+        <li>
+          <%= lesson_word.word_answer.content %> - <%= lesson_word.word_answer.correct? ? "true" : "false" %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ol>

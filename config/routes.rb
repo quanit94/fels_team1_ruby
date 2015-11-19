@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-
 
   root 'static_pages#home'
   #static page
@@ -11,9 +9,6 @@ Rails.application.routes.draw do
 
   #user
   get 'signup'  => 'users#new'
-
-
-
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
@@ -23,11 +18,12 @@ Rails.application.routes.draw do
   resources :users
   resources :words
   resources :categories
+  resources :lessons
 
-  #category
-
-
-  #word
+  resources :categories, only: [:index, :show] do
+    resources :lessons
+  end
+>>>>>>> lesson
   
   namespace "admin" do
 

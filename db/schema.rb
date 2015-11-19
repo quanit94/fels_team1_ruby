@@ -27,11 +27,13 @@ ActiveRecord::Schema.define(version: 20151111041025) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "lesson_words", force: :cascade do |t|
+    t.boolean  "status"
     t.integer  "lesson_id"
     t.integer  "word_id"
     t.integer  "word_answer_id"
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20151111041025) do
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "result"
+    t.string   "name"
     t.integer  "user_id"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
@@ -79,9 +82,10 @@ ActiveRecord::Schema.define(version: 20151111041025) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "image"
     t.string   "password_digest"
     t.boolean  "admin",           default: false
+    t.string   "password"
+
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "remember_digest"

@@ -42,6 +42,8 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "bcrypt", "~> 3.1.7"
 
 gem "rails_config"
+gem "config"
+gem 'pry'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

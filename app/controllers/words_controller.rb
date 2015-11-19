@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+
+  before_action :logged_in_user
 	def index
 
 		if params['category_id']
@@ -27,6 +29,5 @@ class WordsController < ApplicationController
 		
 		@category = Category.order("name ASC")
 	end
-
 
 end
