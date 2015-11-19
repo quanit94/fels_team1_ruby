@@ -4,7 +4,7 @@
 <table class="table table-responsive category">
 	<tbody>
 		<% @count = 0%>
-		<% @category.each do |category| %>
+		<% @categories.each do |category| %>
 			<% @count+=1 %>
 			<tr>
 				<% if @count%2 == 0 %>
@@ -13,7 +13,7 @@
 					</td>
 				<% end %>
 				<td class="category-box">
-					<p><span class="category-name"><%= category.name%></span> - You're learned 20/500</p>
+					<p><span class="category-name"><%= category.name %></span> - You're learned 20/500</p>
 
 					<span>
 						text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text 
