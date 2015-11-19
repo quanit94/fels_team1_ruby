@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show] do
     resources :lessons
   end
->>>>>>> lesson
   
   namespace "admin" do
 
