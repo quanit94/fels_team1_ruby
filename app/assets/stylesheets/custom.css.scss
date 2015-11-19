@@ -108,6 +108,8 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+
+
 }
 
 
@@ -123,4 +125,28 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+
 }
+
+// category 
+.category{
+  width: 80%;
+  margin: 0px auto;
+}
+.category-box{
+  max-width: 100px;
+}
+.category-name{
+  font-size: 30px;
+  font-weight: bold;
+}
+.start-study{
+  margin: 10px;
+
+}
+
+// filter word
+.filter_group{
+  display: inline;
+}
+
