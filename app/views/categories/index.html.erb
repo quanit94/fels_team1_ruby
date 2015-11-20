@@ -19,14 +19,12 @@
 
 					<p><span class="category-name"><%= category.name%></span> - You're learned x/<%= category.words.count %></p>
 
-
-
 					<span>
 						<%= category.description %> 
 					</span><br/>
 					<start class="col-md-3 col-md-offset-9">
-              <%= link_to t("Start"), lessons_path(category_id: category.id), method: :post, class: "btn btn-primary" %>
-          </start>
+		              <%= link_to t("Start"), lessons_path(category_id: category.id), method: :post, class: "btn btn-primary" %>
+		            </start>
 				</td>
 				<% if @count%2 == 1 %>
 					<td>

@@ -5,5 +5,5 @@ categories_per_page: 3
 follow_type: 
   - followers
   - following
-number_result: 5
+number_result: 20
 number_lesson_word: 20

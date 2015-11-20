@@ -7,7 +7,7 @@ class WordsController < ApplicationController
 
 		# theo giao dien web: neu id truyen len rong -> filter all
 		@words = Word.all
-		if !params[:category_id].blank?  
+		if !params[:category_id].blank?
 			@words = Word.where(category_id: params[:category_id])
 
 		# theo android dung api: truyen theo name, neu co name truyen len, filter -> name
@@ -19,6 +19,14 @@ class WordsController < ApplicationController
 				@words = Word.where(category_id: category_id)
 			end
 		end
+
+		if params[:status] == 'not_learn'
+			@words = Word.not_learn(current_user.id)
+		end
+
+		# if params[:status] == 'learned'
+		# 	@words = Word.learned
+		# end
 
 		# chuan bi du lieu de tra ve du lieu format: json
 		word_list = []
