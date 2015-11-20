@@ -1,14 +1,23 @@
 <% provide :title, "Result Lesson" %>
 <h1><%= @lesson.category.name %></h1>
-<ol>
-  <% @lesson.lesson_words.each do |lesson_word| %>
-    <li>
-      <%= lesson_word.word.content %>
-      <ul>
-        <li>
-          <%= lesson_word.word_answer.content %> - <%= lesson_word.word_answer.correct? ? "true" : "false" %>
-        </li>
-      </ul>
-    </li>
-  <% end %>
-</ol>
+<h4>Mark: <%= @lesson.result %></h4>
+
+<table class="table table-hover filter-result-table">
+  <thread>
+    <tr>
+      <th>Japanese</th>
+      <th>Vietnamese</th>
+      <th>Result</th>
+    </tr>
+  </thread>
+
+  <tbody class="filter-result">
+    <% @lesson.lesson_words.each do |lesson_word| %>
+      <tr>
+        <td><%= lesson_word.word.content %></td>
+        <td><%= lesson_word.word_answer.content %></td>
+        <td><%= lesson_word.word_answer.correct? ? "True" : "False" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

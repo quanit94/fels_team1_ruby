@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
 
 	def index
-		@category = Category.order("name ASC")
+		@categories = Category.order("name ASC")
 
 	end
 

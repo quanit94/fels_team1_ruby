@@ -9,7 +9,7 @@ category_list = [
 ]
 
 category_list.each do |cateogory|
-	Category.create(name: cateogory)
+	Category.create(name: cateogory, description: "this is demo")
 end
 
 
