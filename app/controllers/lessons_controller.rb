@@ -1,18 +1,39 @@
 class LessonsController < ApplicationController
   def create
+    # create lesson cua web
     @lesson = current_user.lessons.new
     @lesson.category_id = params[:category_id]
     #binding.pry
 
+
+    # tra ve web
     if @lesson.save
       redirect_to [:edit, @lesson]
     else
       redirect_to :back
     end
+
+    # # create lesson cua mobile
+    # if params[:user_id]
+    #   user = User.find(params[:user_id])
+    #   @lesson_mobile = user.lessons.new
+    #   @lesson_mobile.category_id = params[:category_id]
+    # end
+
+    # if @lesson_mobile.save
+    #     # prepare data respond to user
+    #     list_word_lesson = []
+    # else
+
+    # end
+
+   
+
   end
 
-  def edit 
+  def edit
     @lesson = Lesson.find params[:id]
+    
   end
 
   def show

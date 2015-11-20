@@ -63,7 +63,7 @@ module SessionsHelper
   def logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = t "flash.session_helper.login"
+      flash[:danger] = t "You're not sign in!"
       redirect_to login_url
     end
   end
