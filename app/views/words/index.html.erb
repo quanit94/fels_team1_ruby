@@ -5,7 +5,7 @@
 <div class="container">
 
 	<div class="row col-md-12">
-		<div class="row container col-md-12 filter_menu" style="border:solid 1px;">
+		<div class="row container col-md-12 filter_menu">
 			
 			<h3>Category</h3>
 
@@ -21,7 +21,7 @@
 				  </label>
 			
 				  <label class="col-md-3">
-				  	<%= radio_button_tag 'status', 'not_learn' , class: "form-control"%>not learned
+				  	<%= radio_button_tag 'status', 'not_learn' , class: "form-control"%>not learn
 				  </label >
 			  
 				  <label class="col-md-2">
@@ -38,7 +38,7 @@
 
 		</div>
 
-		<div class="row col-md-3 filter-result-table">
+		<div class="row col-md-9 filter-result-table center-block">
 			<table class="table table-hover ">
 				<thread>
 					<tr>
@@ -60,6 +60,7 @@
 					<% end %>
 				</tbody>
 			</table>
+			
 		</div>
 	</div>
 

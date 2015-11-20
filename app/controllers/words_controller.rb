@@ -3,7 +3,7 @@ class WordsController < ApplicationController
 
 	def index
 		# filter bang category_name 
-	
+		
 		if params[:category_name].present?
 	  		category_id = Category.find_by(name: params[:category_name]).try(:id)
 	  		@words = Word.where(category_id: category_id)
@@ -29,6 +29,8 @@ class WordsController < ApplicationController
 		  @words = @words.where.not(id: word_ids)
 		elsif params[:status] == 'learned'
 		  @words = @words.where(id: word_ids)
+		else
+			@words = @words.all
 		end
 
 		word_list = []

@@ -2,13 +2,13 @@
 
 User.create(email: "quanit94@gmail.com", name: "Quan Tran", password: "quanbn94")
 
-Category.create(name: "people", description: "this is demo")
-Category.create(name: "pictures", description: "this is demo")
-Category.create(name: "foods", description: "this is demo")
-Category.create(name: "education", description: "this is demo")
-Category.create(name: "sports", description: "this is demo")
-Category.create(name: "students", description: "this is demo")
-Category.create(name: "love", description: "this is demo")
+Category.create(name: "people", description: "this is people")
+Category.create(name: "pictures", description: "this is pictures")
+Category.create(name: "foods", description: "this is demo foods")
+Category.create(name: "education", description: "this is demo education")
+Category.create(name: "sports", description: "this is demo sports")
+Category.create(name: "students", description: "this is students")
+Category.create(name: "love", description: "this is love")
 
 # add word list
 for i in 0..30

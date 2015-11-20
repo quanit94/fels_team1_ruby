@@ -2,23 +2,24 @@
 
 <h1>Listing Categories</h1>
 
-<table>
+<table class="table table-responsive">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Description</th><br/>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+  <%= link_to 'New Category', new_admin_category_path, class: "btn btn-primary" %>
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
         <td><%= category.description %></td>
-        <td><%= link_to 'Show', [:admin, category] %></td>
-        <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-        <td><%= link_to 'Destroy', [:admin, category], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', [:admin, category], class: "glyphicon glyphicon-list-alt"%></td>
+        <td><%= link_to '', edit_admin_category_path(category), class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', [:admin, category], method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Category', new_admin_category_path %>
+

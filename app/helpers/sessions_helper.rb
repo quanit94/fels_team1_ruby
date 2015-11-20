@@ -32,6 +32,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # check role admin user.
+  def admin_user?
+    current_user.admin?
+  end
 
 
   # Forgets a persistent session.

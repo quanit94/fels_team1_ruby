@@ -55,7 +55,24 @@ p {
 
 
 /* header */
+.menu-tab{
+  background: #3a5795;
+}
+.nav-menu{
+  color:white;
+  li a{
+    color:white;
+    &:hover{
+      color:#3a5795;
+      font-weight: bold;
+    }
+  }
 
+}
+.nav-button{
+  margin-left:300px;
+
+}
 #logo {
   float: left;
   margin-right: 10px;
@@ -74,7 +91,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 200px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
