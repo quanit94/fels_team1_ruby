@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :admin_user
   before_action :logged_in_user
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
@@ -70,6 +71,6 @@ class Admin::CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :description)
     end
 end

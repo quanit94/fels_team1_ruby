@@ -5,7 +5,7 @@
 	<tbody>
 		<% @count = 0%>
 
-		<% @category.each do |category| %>
+		<% @categories.each do |category| %>
 
 			<% @count+=1 %>
 			<tr>
@@ -16,13 +16,15 @@
 				<% end %>
 				<td class="category-box">
 
-					<p><span class="category-name"><%= category.name%></span> - You're learned 20/500</p>
+					<p><span class="category-name"><%= category.name%></span></p>
 
 
 					<span>
-						text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text 
+						<%= category.description %> 
 					</span><br/>
-					<button class="btn btn-primary start-study">Start study</button>
+					<start class="col-md-3 col-md-offset-9">
+              <%= link_to t("Start"), lessons_path(category_id: category.id), method: :post, class: "btn btn-primary" %>
+          </start>
 				</td>
 				<% if @count%2 == 1 %>
 					<td>

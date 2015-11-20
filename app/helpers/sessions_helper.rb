@@ -58,6 +58,7 @@ module SessionsHelper
     session[:forwarding_url] = request.url if request.get?
   end
   
+
   private
   def logged_in_user
     unless logged_in?

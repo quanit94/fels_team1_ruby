@@ -1,0 +1,21 @@
+<% provide :title, "lesson" %>
+<h1><%= @lesson.category.name %></h1>
+<%= form_for @lesson do |f| %>
+  <ol>
+    <%= f.fields_for :lesson_words do |builder| %>
+      <li>
+        <%= builder.object.word.content %>
+          <ul>
+          <% builder.object.word.word_answers.each do |answer| %>
+            <li>
+              <%= builder.label :word_answer_id, answer.content %>
+              <%= builder.radio_button :word_answer_id, answer.id %>
+              
+            </li>
+          <% end %>
+          </ul>
+      </li>
+    <% end %>
+  </ol>
+  <%= f.submit "Finish", class: "btn btn-primary" %>
+<% end %>

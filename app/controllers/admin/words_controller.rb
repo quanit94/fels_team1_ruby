@@ -1,5 +1,5 @@
 class Admin::WordsController < ApplicationController
-
+  before_action :admin_user
   before_action :logged_in_user
   before_action :load_word, only: [:edit, :destroy, :update]
 
