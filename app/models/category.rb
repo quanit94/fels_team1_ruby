@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+
   has_many :lesson, dependent: :destroy
   has_many :word, dependent: :destroy
 
@@ -6,4 +7,5 @@ class Category < ActiveRecord::Base
     uniqueness: {case_sensitive: false}
   validates :description, presence:true, length: {maximum: 150},
     uniqueness: {case_sensitive: false}
+
 end

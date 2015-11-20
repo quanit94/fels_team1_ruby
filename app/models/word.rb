@@ -6,9 +6,14 @@ class Word < ActiveRecord::Base
 
   accepts_nested_attributes_for :word_answers, allow_destroy: true,
     reject_if: proc{|a| a["content"].blank?}
-  
-  scope :not_learn, -> id_user, id_category{Word.where "category_id = ? AND id NOT IN
-    (SELECT word_id FROM lesson_words WHERE lesson_id IN 
-      (SELECT id FROM lessons WHERE user_id = ?))", id_category, id_user}
+
+
+    # Filter Word
+  scope :all_word, ->user_id{}
+  scope :learned, ->user_id{where("id in (select word_id from lesson_words where
+    lesson_id in (select id from lessons where user_id = #{user_id}))")}
+  scope :not_learn, ->user_id{where("id not in (select word_id from lesson_words where
+    lesson_id in (select id from lessons where user_id = #{user_id}))")}
+
 end
  
