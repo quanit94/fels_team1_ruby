@@ -20,6 +20,9 @@ class Word < ActiveRecord::Base
 
   # scope :not_learn, -> (user_id, category_id){where.not(id: LessonWord.where(lesson_id: Lesson.where(user_id: user_id).pluck(:id)), category_id: category_id)}
 
+  def correct_answer
+    self.word_answers.where(correct: true).first
+  end
 
 end
  
