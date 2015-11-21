@@ -2,7 +2,7 @@
 
 <h1>Listing Users</h1>
 
-<table>
+<table class="table table-responsive">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,13 +12,14 @@
   </thead>
 
   <tbody>
+  <%= link_to 'New User', new_admin_user_path, class: "btn btn-primary" %>
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', [:admin, user] %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
-        <td><%= link_to 'Destroy', [:admin, user], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', [:admin, user], class: "glyphicon glyphicon-list-alt" %></td>
+        <td><%= link_to '', edit_admin_user_path(user), class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', [:admin, user], method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New User', new_admin_user_path %>
+

@@ -32,6 +32,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # check role admin user.
+  def admin_user?
+    current_user.admin?
+  end
 
 
   # Forgets a persistent session.
@@ -63,7 +67,7 @@ module SessionsHelper
   def logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = t "flash.session_helper.login"
+      flash[:danger] = t "You're not sign in!"
       redirect_to login_url
     end
   end

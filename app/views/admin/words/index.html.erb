@@ -2,7 +2,7 @@
 <% provide :title, 'All words' %>
 <h1>Listing Word</h1>
 
-<table>
+<table class="table table-responsive">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,15 +16,14 @@
       <tr>
         <td><%= word.content %></td>
         <td><%= word.category_id %></td>
-        <td><%= link_to 'Show', [:admin, word] %></td>
-        <td><%= link_to 'Edit', edit_admin_word_path(word) %></td>
-        <td><%= link_to 'Destroy', [:admin, word], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', [:admin, word], class: "glyphicon glyphicon-list-alt" %></td>
+        <td><%= link_to '', edit_admin_word_path(word), class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', [:admin, word], method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %></td>
 
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Word', new_admin_word_path %>

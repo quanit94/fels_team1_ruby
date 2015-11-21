@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  
   def new
+
   end
 
   def create
@@ -9,10 +11,10 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       respond_to do |f|
-        f.html do 
-          log_in user
-          params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
           remember user
+        f.html do
           redirect_to user
         end
         f.json {
@@ -35,6 +37,8 @@ class SessionsController < ApplicationController
     end
   end
 
+  
+  
   def destroy
     log_out if logged_in?
     redirect_to root_url

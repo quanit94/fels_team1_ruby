@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20151111041025) do
-
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id"
@@ -64,28 +62,12 @@ ActiveRecord::Schema.define(version: 20151111041025) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "results", force: :cascade do |t|
-    t.boolean  "status"
-    t.integer  "word_id"
-    t.integer  "lesson_id"
-    t.integer  "answer_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "results", ["answer_id"], name: "index_results_on_answer_id"
-  add_index "results", ["lesson_id"], name: "index_results_on_lesson_id"
-  add_index "results", ["user_id"], name: "index_results_on_user_id"
-  add_index "results", ["word_id"], name: "index_results_on_word_id"
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "image"
     t.string   "password_digest"
     t.boolean  "admin",           default: false
-    t.string   "password"
-
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "remember_digest"

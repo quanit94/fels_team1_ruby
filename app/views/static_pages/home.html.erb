@@ -4,7 +4,7 @@
     <aside class="col-md-4" >
       <%= render "shared/user_info" %>
     </aside>
-    <div class="col-md-8" >
+    <div class="col-md-8 nav-button-user" >
       <%= link_to t("static_pages.home.word"), words_path, class: "btn btn-lg btn-primary" %>
       <%= link_to t("static_pages.home.lesson"), categories_path,
         class: "btn btn-lg btn-primary" %>
@@ -15,4 +15,7 @@
     <%= link_to t("static_page.home.sign_up_now"), signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
+<div class="center-block center container">
+  <a data-flickr-embed="true" data-header="true" data-footer="true" data-context="true"  href="https://www.flickr.com/photos/137994479@N02/23153926495/" title="nihongo"><img src="https://farm6.staticflickr.com/5688/23153926495_33d2981e36_b.jpg" width="1024" height="453" alt="nihongo"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+</div>
 

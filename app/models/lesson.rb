@@ -11,7 +11,7 @@ class Lesson < ActiveRecord::Base
   
   #validate :check_number_words, on: :create
 
-  private
+  
   def init_lesson
     list_word = Word.not_learn self.user_id, self.category_id
     number = list_word.length
@@ -20,6 +20,8 @@ class Lesson < ActiveRecord::Base
       self.lesson_words.build word_id: list_word[n].id
     end
   end
+  
+  private
 
   def update_result
     self.result = self.lesson_words.select{|result| result.word_answer.try(:correct)}.count
@@ -31,4 +33,7 @@ class Lesson < ActiveRecord::Base
       errors.add :words, I18n.t("not_enough_word")
     end
   end
+
+
+
 end

@@ -3,12 +3,8 @@
 $('.filter-result').empty();
 
 <% @words.each do |word| %>
-  $('.filter-result').append("<tr>");
-	  $('.filter-result').append("<td><%= escape_javascript word.content %></td>");
-	  <% word.word_answers.each do |word_answer| %>
-	  	 <% if word_answer.correct %>
-	  	 	$('.filter-result').append("<td><b><%= escape_javascript word_answer.content %></b></td>");
-	  	 <% end %>
-	  <% end %>
-  $('.filter-result').append("</tr>");
+	$('.filter-result').append("<tr><td><%=j word.content %></td><td><%=j word.correct_answer.content %></td></tr>");
 <% end %>
+
+$('#paginate').html("<%=j will_paginate(@words) %>");
+
