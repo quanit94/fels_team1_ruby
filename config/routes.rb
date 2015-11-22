@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
  
- 
+  get 'activities' => 'activities#show'
 
   resources :users
   resources :words

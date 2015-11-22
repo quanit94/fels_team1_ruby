@@ -1,0 +1,4 @@
+
+<% @activities.each do |activity| %>
+<%= activity.lesson.category.name %> - <%= activity.lesson.created_at.day %>/<%= activity.lesson.created_at.month %>/<%= activity.lesson.created_at.year %><br>
+<% end %>

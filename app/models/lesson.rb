@@ -8,16 +8,15 @@ class Lesson < ActiveRecord::Base
   
   before_create :init_lesson
   before_save :update_result
+  after_save :store_activity
   
   #validate :check_number_words, on: :create
 
   
   def init_lesson
-    list_word = Word.not_learn self.user_id, self.category_id
-    number = list_word.length
-    number = number > Settings.number_result ? Settings.number_result : number
-    number.times do |n|
-      self.lesson_words.build word_id: list_word[n].id
+    list_word = Word.not_learn(self.user_id, self.category_id).sample(Settings.number_result)
+    list_word.each do |word|
+      self.lesson_words.build word_id: word.id
     end
   end
   
@@ -33,7 +32,10 @@ class Lesson < ActiveRecord::Base
       errors.add :words, I18n.t("not_enough_word")
     end
   end
-
-
+  
+  def store_activity
+    self.user.activities.create(target_id: self.id, action_type: 'learned')
+  end
+    
 
 end
