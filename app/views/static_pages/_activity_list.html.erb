@@ -1,4 +1,5 @@
 
+<h2>Activities(<%= @activities.count %>) </h2>
 <% @activities.each do |activity| %>
-<%= activity.lesson.category.name %> - <%= activity.lesson.created_at.day %>/<%= activity.lesson.created_at.month %>/<%= activity.lesson.created_at.year %><br>
+<b>You haved learned Lesson <%= activity.lesson.category.name %></b> - <%= activity.lesson.created_at.time %><br>
 <% end %>

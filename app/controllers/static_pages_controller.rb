@@ -2,7 +2,6 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       @activities = current_user.activities
-      #@category= (@activity.category_id
     end
   end
 
