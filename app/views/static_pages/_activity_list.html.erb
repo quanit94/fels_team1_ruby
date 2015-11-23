@@ -1,0 +1,5 @@
+
+<h2>Activities(<%= @activities.count %>) </h2>
+<% @activities.each do |activity| %>
+<b>You haved learned Lesson <%= activity.lesson.category.name %></b> - <%= activity.lesson.created_at.time %><br>
+<% end %>
