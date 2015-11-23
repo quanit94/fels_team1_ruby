@@ -1,17 +1,21 @@
 class LessonsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  # before_action :logged_in_user
 
-  def create
-    
+  def new
     # create lesson cua mobile
     if params[:user_id]
+
       user = User.find(params[:user_id])
       @lesson_mobile = user.lessons.new
+
       @lesson_mobile.category_id = params[:category_id]
-      if @lesson_mobile.save
           # prepare data respond to user
           list_word_lesson = []
+         
+          @lesson_mobile.init_lesson 
           @lesson_mobile.lesson_words.each do |lesson_word|
+
             # tao list answer cho moi cau hoi
             list_answer = []
             @list_answers = WordAnswer.where(word_id: lesson_word.word_id)
@@ -24,6 +28,7 @@ class LessonsController < ApplicationController
             end
             # tao cau tra loi
             word_question = Word.where(id: lesson_word.word_id)
+
             lesson_data = {
               word_question: {content: word_question.first.content},
               list_answer: list_answer
@@ -35,12 +40,14 @@ class LessonsController < ApplicationController
             format.html {}
             format.json {render json:{error: :false, lesson: list_word_lesson}, status: :ok}
           end
-      else
-          respond_to do |format|
-            format.html {}
-            format.json {render json:{error: :true, message: "Data empty"}, status: 401}
-          end
-      end
+      
+    end
+
+  end
+
+  def create
+    if params[:lesson]
+      lesson = params[:lesson]
     end
 
     # create lesson cua web
@@ -49,19 +56,17 @@ class LessonsController < ApplicationController
         @lesson.category_id = params[:category_id]
       
       # tra ve web
-      if @lesson.save
+      if @lesson
         redirect_to [:edit, @lesson]
       else
         redirect_to :back
       end
     end
-   
 
 
   end
 
   def edit
-
     @lesson = Lesson.find params[:id]
     
   end
