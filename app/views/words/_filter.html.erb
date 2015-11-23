@@ -1,0 +1,35 @@
+<script type="text/javascript">
+	// xu li menu filter khi load phan trang
+	$("#category-name").val("<%=j params[:category_name] %>");
+    var status_elm = document.getElementById("status_"+"<%=j params[:status] %>");
+    if(status_elm){
+    	status_elm.checked = true;
+    }
+</script>
+<h3>Category</h3>
+
+<%= form_tag "/words", method: :get, remote: true do %>
+<!-- select option -->
+  <div class="col-md-3">
+	  	<%= select_tag :category_name, options_from_collection_for_select(Category.all, :name, :name), :include_blank => 'All Category', class: "form-control", id: "category-name" %>
+  </div>
+<!-- radio button -->
+  <div class="col-md-6 filter-radio">
+	  <label class="col-md-2">
+	  	<%= radio_button_tag 'status', 'learned' , class: "form-control"%>learned
+	  </label>
+
+	  <label class="col-md-3">
+	  	<%= radio_button_tag 'status', 'not_learn' , class: "form-control"%>not learn
+	  </label >
+  
+	  <label class="col-md-2">
+	  	<%= radio_button_tag 'status', 'all' , class: "form-control"%> &emsp;All
+	  </label>
+	  <label class="col-md-2">
+	  	<input type="submit" class="btn btn-primary" value="Filter">
+	  </label>
+  </div>
+<!-- button submit -->
+
+<% end %>

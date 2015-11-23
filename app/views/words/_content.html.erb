@@ -1,0 +1,26 @@
+
+<div class="row col-md-9 filter-result-table center-block">
+	<table class="table table-hover ">
+		<thread>
+			<tr>
+				<th>Vietnamese</th>
+				<th>Japanese</th>
+			</tr>
+		</thread>
+
+		<tbody class="filter-result">
+			<% @words.each do |word| %>
+				<tr>
+					<td><%= word.content %></td>
+					<td><b><%= word.correct_answer.content %></b></td>
+				</tr>
+			<% end %>
+		</tbody>
+		<div class="paginate">
+		  <%= will_paginate @words %>
+		</div>
+	</table>
+	
+	
+</div>
+

@@ -11,10 +11,10 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       respond_to do |f|
-        log_in user
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        f.html do 
+          log_in user
+          params[:session][:remember_me] == '1' ? remember(user) : forget(user)
           remember user
-        f.html do
           redirect_to user
         end
         f.json {

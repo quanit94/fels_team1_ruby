@@ -1,10 +1,9 @@
-
-
 $('.filter-result').empty();
 
 <% @words.each do |word| %>
-	$('.filter-result').append("<tr><td><%=j word.content %></td><td><%=j word.correct_answer.content %></td></tr>");
+	$('.filter-result').append("<tr><td><%=j word.content %></td><td><b><%=j word.correct_answer.content %></b></td></tr>");
 <% end %>
 
-$('#paginate').html("<%=j will_paginate(@words) %>");
+$('.paginate').empty();
+$('.paginate').append("<%=j will_paginate @words %>");
 

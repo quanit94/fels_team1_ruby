@@ -6,66 +6,9 @@
 
 	<div class="row col-md-12">
 		<div class="row container col-md-12 filter_menu">
-			
-			<h3>Category</h3>
-
-			<%= form_tag "/words", method: :get, remote: true do %>
-			<!-- select option -->
-			  <div class="col-md-3">
-				  	<%= select_tag :category_name, options_from_collection_for_select(Category.all, :name, :name), :include_blank => 'All Category', class: "form-control" %>
-			  </div>
-			<!-- radio button -->
-			  <div class="col-md-6 filter-radio">
-				  <label class="col-md-2">
-				  	<%= radio_button_tag 'status', 'learned' , class: "form-control"%>learned
-				  </label>
-			
-				  <label class="col-md-3">
-				  	<%= radio_button_tag 'status', 'not_learn' , class: "form-control"%>not learn
-				  </label >
-			  
-				  <label class="col-md-2">
-				  	<%= radio_button_tag 'status', 'all' , class: "form-control"%> &emsp;All
-				  </label>
-				  <label class="col-md-2">
-				  	<input type="submit" class="btn btn-primary" value="Filter">
-				  </label>
-			  </div>
-
-			<!-- button submit -->
-			
-			<% end %>
-
+			<%= render "filter" %>
 		</div>
-
-		<div class="row col-md-9 filter-result-table center-block">
-			<table class="table table-hover ">
-				<thread>
-					<tr>
-						<th>Vietnamese</th>
-						<th>Japanese</th>
-					</tr>
-				</thread>
-
-				<tbody class="filter-result">
-					<% @words.each do |word| %>
-						<tr>
-							<td><%= word.content %></td>
-						<% word.word_answers.each do |answer| %>
-							<% if answer.correct %>
-								<td><b><%= answer.content %></b></td>
-							<% end %>
-						<% end %>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
-
-			<div id="paginate"></div>
-			
-		</div>
+			<%= render "content" %>
 	</div>
 
-
-	
 </div>

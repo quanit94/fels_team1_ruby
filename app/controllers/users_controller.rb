@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
-    
+    @user = User.find(params[:id])
   end
 
   def new 
@@ -33,11 +33,6 @@ class UsersController < ApplicationController
     end
   end
 
- 
-  def edit
-  end
-
-
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -45,13 +40,12 @@ class UsersController < ApplicationController
         format.json { render json: {error: false, user: @user},  status: :ok}
       else
         format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: {error: false, user: @user.errors}, status: :unprocessable_entity }
       end
     end
   end
 
   private
-
     def set_user
       @user = User.find(params[:id])
     end
