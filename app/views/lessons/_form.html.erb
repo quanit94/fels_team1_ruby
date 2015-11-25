@@ -1,0 +1,25 @@
+<% provide :title, "lesson" %>
+
+
+<h1><%= @category_name.name %></h1>
+<%= form_for @lesson_mobile do |f| %>
+  <%= hidden_field_tag :category_id, @category_name.id %>
+  <ul>
+      <% @count = 0 %>
+      <% @list_word_lesson.each do |word| %>
+
+        <span style="color:red"
+        ><%= @count+=1 %> <%= label :lesson_word_content, word[:word_question][:content] %></span>
+
+        <% word[:list_answer].each do |answer| %>
+          <li>
+            <%= label :word_answer_id, answer[:content_answer] %>
+            <%= radio_button_tag 'answer_word_id'+word[:word_question][:id].to_s, answer[:id] %>
+          </li>
+        <% end %>
+      <% end %>
+
+  </ul>
+  
+  <%= button_to 'Submit', lessons_path, method: :post, class: "btn btn-primary" %>
+<% end %>

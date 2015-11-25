@@ -22,7 +22,7 @@
 						<%= category.description %> 
 					</span><br/>
 					<start class="col-md-3 col-md-offset-9">
-		              <%= link_to t("Start"), lessons_path(category_id: category.id), method: :post, class: "btn btn-primary" %>
+		              <%= link_to t("Start"), new_lesson_path(category_id: category.id), method: :get, class: "btn btn-primary" %>
 		            </start>
 				</td>
 				<% if @count%2 == 1 %>

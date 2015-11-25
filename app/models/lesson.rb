@@ -6,13 +6,13 @@ class Lesson < ActiveRecord::Base
   default_scope -> {order created_at: :desc}
   accepts_nested_attributes_for :lesson_words, allow_destroy: true
   
-  before_create :init_lesson
-  before_save :update_result
+
+  after_save :update_result
   after_save :store_activity
   
   #validate :check_number_words, on: :create
 
-  private
+  
   def init_lesson
     list_word = Word.not_learn(self.user_id, self.category_id).sample(Settings.number_result)
     list_word.each do |word|
@@ -20,6 +20,7 @@ class Lesson < ActiveRecord::Base
     end
   end
 
+  private
   def update_result
     self.result = self.lesson_words.select{|result| result.word_answer.try(:correct)}.count
   end

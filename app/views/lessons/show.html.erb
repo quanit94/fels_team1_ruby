@@ -1,4 +1,5 @@
 <% provide :title, "Result Lesson" %>
+
 <h1><%= @lesson.category.name %></h1>
 <h4>Mark: <%= @lesson.result %></h4>
 
@@ -13,6 +14,7 @@
 
   <tbody class="filter-result">
     <% @lesson.lesson_words.each do |lesson_word| %>
+
       <tr>
         <td><%= lesson_word.word.content %></td>
         <td><%= lesson_word.word_answer.content %></td>

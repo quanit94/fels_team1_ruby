@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   skip_before_action :verify_authenticity_token
-  before_action :logged_in_user
-  before_action :set_user
+  # before_action :set_user
+
+  # skip_before_action :require_login, only: :update
 
   def show
     @user = User.find(params[:id])
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url, notice: 'User was successfully updated.' }
@@ -46,9 +48,9 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
 
     def user_params 
         params.require(:user).permit(:name, :email, :password, :password_confirmation)

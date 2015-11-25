@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 20151111041025) do
   end
 
   create_table "lesson_words", force: :cascade do |t|
-    t.boolean  "status"
+    t.boolean  "status",         default: false
     t.integer  "lesson_id"
     t.integer  "word_id"
     t.integer  "word_answer_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "lesson_words", ["lesson_id"], name: "index_lesson_words_on_lesson_id"
